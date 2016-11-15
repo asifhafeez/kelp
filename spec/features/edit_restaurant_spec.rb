@@ -1,10 +1,6 @@
 feature 'Edit restaurant' do
   scenario 'can edit a restaurant' do
-    visit '/'
-    click_link 'Add restaurant'
-    fill_in :restaurant_name, with: 'Hungry Donkey'
-    fill_in :restaurant_description, with: 'The best greek restaurant in town'
-    click_button 'Submit'
+    add_restaurant
     click_link 'More info'
     click_link "Edit details"
     fill_in :restaurant_name, with: "Hungrier Donkey"
