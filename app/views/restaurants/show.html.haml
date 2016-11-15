@@ -1,0 +1,10 @@
+#container
+  %header
+    %h1 KELP
+  #main
+    %h2
+      =@restaurant.name
+    %p
+      =@restaurant.description
+    =link_to "<button>Edit details</button>".html_safe, edit_restaurant_path(@restaurant)
+    =link_to "<button>Add review</button>".html_safe
