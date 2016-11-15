@@ -5,8 +5,9 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    @review = Review.new(review_params)
 
+    @restaurant = Restaurant.find(params[:article_id])
+    @review = @restaurant.reviews.create(review_params)
     @review.save
     redirect_to @review
   end

@@ -5,7 +5,9 @@
     <title></title>
   </head>
   <body>
-    <%= form_for :review, url: reviews_path do |f| %>
+
+    <%= form_for ([@restaurant, @restaurant.reviews.build]) do |f| %>
+
       <p>
         <%= f.label :rating %><br>
         <%= f.number_field :rating %>
