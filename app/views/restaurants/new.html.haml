@@ -3,7 +3,7 @@
 		%h1 KELP
 	#main
 		%h2 Add Restaurant
-		=form_tag(controller: :restaurants, action: :create)
+		=form_tag action: :create
 		=label_tag :name
 		=text_field_tag :name
 		=label_tag :description
