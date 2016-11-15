@@ -1,29 +1,7 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
-
-    <%= form_for ([@restaurant, @restaurant.reviews.build]) do |f| %>
-
-      <p>
-        <%= f.label :rating %><br>
-        <%= f.number_field :rating %>
-      </p>
-
-      <p>
-        <%= f.label :comment %><br>
-        <%= f.text_field :comment %>
-      </p>
-
-      <p>
-        <%= f.submit %>
-      </p>
-
-    <%end%>
-
-
-  </body>
-</html>
+<%= form_for [@restaurant, @review] do |f| %>
+  <%= f.label :comment %>
+  <%= f.text_area :comment %>
+  <%= f.label :rating %>
+  <%= f.select :rating, (1..5) %>
+  <%= f.submit 'Leave Review' %>
+<% end %>
