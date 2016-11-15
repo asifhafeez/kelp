@@ -1,0 +1,10 @@
+#container
+	%header
+		%h1 KELP
+	#main
+		%h2 Restaurant List
+		%ul
+			-@restaurants.each do |restaurant|
+				%li
+					%p= restaurant.name
+					%p= restaurant.description
