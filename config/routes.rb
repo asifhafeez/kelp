@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
-  get 'review/new'
-  root 'review#new'
+  resources :reviews
+  root 'reviews#new'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
