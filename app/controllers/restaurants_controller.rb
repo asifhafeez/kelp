@@ -9,7 +9,7 @@ class RestaurantsController < ApplicationController
 	end
 
 	def create
-		@restaurant = Restaurant.new(restaurant_params)
+		@restaurant = current_user.restaurants.new(restaurant_params)
 		if @restaurant.save
 			flash[:success] = "Restaurant was successfully added"
 			redirect_to '#index'

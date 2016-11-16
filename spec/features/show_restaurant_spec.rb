@@ -1,4 +1,9 @@
 feature 'Show restaurant' do
+  before do
+    user = User.create email: 'tansaku@gmail.com', password: '12345678', password_confirmation: '12345678'
+    login_as user
+  end
+
   scenario 'when user visits the restaurant page' do
     add_restaurant
     click_link 'More info'

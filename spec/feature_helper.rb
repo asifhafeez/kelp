@@ -11,4 +11,5 @@ module FeatureHelper
     visit '/'
     click_link 'Add restaurant'
   end
+
 end

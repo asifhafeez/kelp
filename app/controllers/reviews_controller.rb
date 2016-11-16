@@ -8,8 +8,12 @@ end
   def create
 
     @restaurant = Restaurant.find(params[:restaurant_id])
-    @review = @restaurant.reviews.create(review_params)
-    redirect_to @restaurant
+    @review = @restaurant.reviews.new(review_params)
+    if @review.save
+      redirect_to @restaurant
+    else
+      render 'new'
+    end
 
   end
 
