@@ -1,5 +1,11 @@
 feature 'Add restaurant' do
-  scenario 'can add a restaurant' do
+
+  before do
+    user = User.create email: 'tansaku@gmail.com', password: '12345678', password_confirmation: '12345678'
+    login_as user
+  end
+  
+  scenario 'can add a restaurant', focus: :true do
     expect{add_restaurant}.to change{Restaurant.count}.by(1)
     expect(page).to have_content 'Hungry Donkey'
     expect(page).to have_content 'The best greek restaurant in town'

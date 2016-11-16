@@ -1,8 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe Review, type: :model do
-
-  	subject(:review) {described_class.new(rating: "3", comment: "DONT ORDER HERE. Eat cereal you already have. See that canned soup in the pantry? Cook it. F$!@ this place! Never again!")}
+  
+    let(:user) { User.create email: 'tansaku@gmail.com', password: '12345678', password_confirmation: '12345678' }
+  
+  	subject(:review) {described_class.new(rating: "3", comment: "DONT ORDER HERE. Eat cereal you already have. See that canned soup in the pantry? Cook it. F$!@ this place! Never again!", 
+                      user_id: user.id)}
 
   	it "should set the rating" do
   		expect(review.rating).to eq(3)
@@ -19,8 +22,11 @@ RSpec.describe Review, type: :model do
 
     it "should have a rating greater than or equal to 1" do
       review2 = Review.new(rating: "0")
-      p review2
       expect {review2.save}.to_not change{Review.count}
+    end
+
+    it "should have a user", focus: :true do
+      expect(review.user).to eq user
     end
 
     it "should have a rating less than or equal to 5" do

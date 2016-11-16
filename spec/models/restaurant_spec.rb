@@ -2,12 +2,15 @@ require 'rails_helper'
 
 RSpec.describe Restaurant, type: :model do
 
-	subject(:restaurant) {described_class.create(name: "Tayyabs", description: "Great Indian Restaurant")}
+  let(:user) { User.create email: 'tansaku@gmail.com', password: '12345678', password_confirmation: '12345678' }
+
+	subject(:restaurant) {described_class.create(name: "Tayyabs", description: "Great Indian Restaurant",
+		user_id: user.id)}
 
   it 'should calculate average rating' do
-		restaurant.reviews.create(rating: 5, comment: "Great Indian Restaurant")
-		restaurant.reviews.create(rating: 1, comment: "Awful")
-		restaurant.reviews.create(rating: 2, comment: "Passable")
+		restaurant.reviews.create(rating: 5, comment: "Great Indian Restaurant", user_id: user.id)
+		restaurant.reviews.create(rating: 1, comment: "Awful", user_id: user.id)
+		restaurant.reviews.create(rating: 2, comment: "Passable", user_id: user.id)
 		expect(restaurant.average_rating).to eq(3)
   end
 
@@ -22,5 +25,9 @@ RSpec.describe Restaurant, type: :model do
 	it "should set the description" do
 		expect(restaurant.description).to eq("Great Indian Restaurant")
 	end
+
+	it "should have a user", focus: :true do
+    expect(restaurant.user).to eq user
+  end
 
 end

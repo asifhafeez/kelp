@@ -1,5 +1,10 @@
 feature "adding a review" do
 
+    before do
+      user = User.create email: 'tansaku@gmail.com', password: '12345678', password_confirmation: '12345678'
+      login_as user
+    end
+
   scenario "adding and seeing reviews" do
     add_restaurant
     visit "/restaurants/1"
