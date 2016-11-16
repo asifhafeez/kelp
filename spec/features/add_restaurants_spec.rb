@@ -6,13 +6,41 @@ feature 'Add restaurant' do
     expect(page).to have_content 'Restaurant was successfully added'
   end
 
-  scenario 'doesn\'t add empty restaurant name' do
-    visit '/'
-    click_link 'Add restaurant'
+  scenario 'doesn\'t add restaurant with empty restaurant name' do
+    click_add_restaurant
     fill_in :restaurant_name, with: ''
     fill_in :restaurant_description, with: 'The best greek restaurant in town'
     expect{click_button('Submit')}.not_to change{Restaurant.count}
     expect(page).to have_content 'Name can\'t be blank'
     expect(page).to have_current_path('/restaurants')
   end
+
+  scenario 'doesn\'t add restaurant with empty restaurant description' do
+    click_add_restaurant
+    fill_in :restaurant_name, with: 'Hungry Donkey'
+    fill_in :restaurant_description, with: ''
+    expect{click_button('Submit')}.not_to change{Restaurant.count}
+    expect(page).to have_content 'Description can\'t be blank'
+    expect(page).to have_current_path('/restaurants')
+  end
+
+  scenario 'doesn\'t add restaurant name with more than 50 chars' do
+    click_add_restaurant
+    fill_in :restaurant_name, with: 'e19YtJw7QWWpqjQ9SC9wuaNbWMWj8aV1aytjzyVNWA9KLeWhPHh'
+    fill_in :restaurant_description, with: 'The best greek restaurant in town'
+    expect{click_button('Submit')}.not_to change{Restaurant.count}
+    expect(page).to have_content 'Name is too long (maximum is 50 characters)'
+    expect(page).to have_current_path('/restaurants')
+  end
+
+  scenario 'doesn\'t add description name with more than 1500 chars' do
+    click_add_restaurant
+    fill_in :restaurant_name, with: 'e19YtJw7QWWpqjQ9SC9wuaNbWMWj8aV1aytjzyVNWA9KLeWhPHh'
+    fill_in :restaurant_description, with: 'The best greek restaurant in town'
+    expect{click_button('Submit')}.not_to change{Restaurant.count}
+    expect(page).to have_content 'Name is too long (maximum is 50 characters)'
+    expect(page).to have_current_path('/restaurants')
+  end
+
+
 end
