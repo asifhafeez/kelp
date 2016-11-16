@@ -1,7 +1,5 @@
-#container
-    %header
-        %h1 KELP
-    #main
-        %h2 Edit Restaurant
-        = render 'form'
-        =link_to "<button>Delete</button>".html_safe, restaurant_path(@restaurant), method: :delete, data: { confirm: 'Are you sure?'}
+#main
+  %h2 Edit Restaurant
+  = render 'form'
+  =link_to "<button>Delete</button>".html_safe, restaurant_path(@restaurant), method: :delete, data: { confirm: 'Are you sure?'}
+  =link_to "Back", @restaurant
