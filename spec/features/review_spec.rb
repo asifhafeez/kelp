@@ -10,6 +10,7 @@ scenario "adding and seeing reviews" do
   click_button'Leave Review'
   expect(page).to have_content("really good")
   expect(page).to have_content("Rating: 5")
+  expect(page).to have_content("Average Rating: 5")
 
 end
 
