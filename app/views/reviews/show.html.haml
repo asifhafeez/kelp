@@ -1,0 +1,15 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{:charset => "utf-8"}/
+    %title
+  %body
+    %p
+      = @restaurant.name
+    %p
+      %strong Rating:
+      = @review.rating
+    %p
+      %strong Comment:
+      = @review.comment
