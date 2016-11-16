@@ -9,6 +9,7 @@ end
 
     @restaurant = Restaurant.find(params[:restaurant_id])
     @review = @restaurant.reviews.new(review_params)
+    @review.user_id = current_user.id
     if @review.save
       redirect_to @restaurant
     else

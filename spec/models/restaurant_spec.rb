@@ -8,9 +8,9 @@ RSpec.describe Restaurant, type: :model do
 		user_id: user.id)}
 
   it 'should calculate average rating' do
-		restaurant.reviews.create(rating: 5, comment: "Great Indian Restaurant")
-		restaurant.reviews.create(rating: 1, comment: "Awful")
-		restaurant.reviews.create(rating: 2, comment: "Passable")
+		restaurant.reviews.create(rating: 5, comment: "Great Indian Restaurant", user_id: user.id)
+		restaurant.reviews.create(rating: 1, comment: "Awful", user_id: user.id)
+		restaurant.reviews.create(rating: 2, comment: "Passable", user_id: user.id)
 		expect(restaurant.average_rating).to eq(3)
   end
 
