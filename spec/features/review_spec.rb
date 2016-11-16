@@ -1,7 +1,7 @@
 
 feature "adding a review" do
 
-scenario "seeing reviews" do
+scenario "adding and seeing reviews" do
   add_restaurant
   visit "/restaurants/1"
   click_link("Add review")
