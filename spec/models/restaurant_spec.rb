@@ -11,6 +11,10 @@ RSpec.describe Restaurant, type: :model do
 		expect(restaurant.average_rating).to eq(3)
   end
 
+	it 'should deliver appropriate message if no reviews' do
+			expect(restaurant.average_rating).to eq("No ratings yet")
+	end
+
 	it "should set the name" do
 		expect(restaurant.name).to eq("Tayyabs")
 	end
