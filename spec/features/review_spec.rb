@@ -1,15 +1,17 @@
 
 feature "adding a review" do
 
-  scenario "adding a review" do
-      visit "/reviews/new"
-      fill_in 'Rating', with: 5
-      fill_in 'Comment', with: 'Good'
-      click_button'Save Review'
-      expect(page).to have_content 'Good'
+scenario "seeing reviews" do
+  add_restaurant
+  visit "/restaurants/1"
+  click_link("Add review")
+  fill_in :review_comment, with: 'really good'
+  select '5', from: 'review_rating'
+  click_button'Leave Review'
+  expect(page).to have_content("really good")
+  expect(page).to have_content("Rating: 5")
 
-  end
-
+end
 
 
 end

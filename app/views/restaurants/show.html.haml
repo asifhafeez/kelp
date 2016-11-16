@@ -7,4 +7,15 @@
     %p
       =@restaurant.description
     =link_to "<button>Edit details</button>".html_safe, edit_restaurant_path(@restaurant)
-    =link_to "<button>Add review</button>".html_safe
+
+    %h3 Reviews
+    %ul
+      -@restaurant.reviews.each do |review|
+        %li
+          %p
+            Rating:
+            =review.rating
+          %p
+            =review.comment
+
+    =link_to "<button>Add review</button>".html_safe, new_restaurant_review_path(@restaurant)
