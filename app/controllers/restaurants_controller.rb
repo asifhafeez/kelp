@@ -9,12 +9,17 @@ class RestaurantsController < ApplicationController
 	end
 
 	def create
-		@restaurant = current_user.restaurants.new(restaurant_params)
-		if @restaurant.save
-			flash[:success] = "Restaurant was successfully added"
+		if current_user
+			@restaurant = current_user.restaurants.new(restaurant_params)
+			if @restaurant.save
+				flash[:success] = "Restaurant was successfully added"
+				redirect_to '#index'
+			else
+				render 'new'
+			end
+		else 
+			flash[:error] = "You must be signed in"
 			redirect_to '#index'
-		else
-			render 'new'
 		end
 	end
 
