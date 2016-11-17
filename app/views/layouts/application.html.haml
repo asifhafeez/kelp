@@ -11,6 +11,8 @@
     %header
       %h1 
         =link_to "KELP", root_path
+        
+
       - if current_user
         = link_to "<button>Sign Out</button>".html_safe, destroy_user_session_path
         = link_to "<button>Edit Profile</button>".html_safe, edit_user_registration_path
