@@ -11,6 +11,7 @@ Rails.application.routes.draw do
       resources :reviews
   end
 
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

@@ -13,6 +13,8 @@
     -@restaurant.reviews.each do |review|
       %li
         %p
+          =review.get_user_email
+        %p
           Rating:
           =review.rating
         %p
