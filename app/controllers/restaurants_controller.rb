@@ -28,18 +28,28 @@ class RestaurantsController < ApplicationController
 
 	def update
 		@restaurant = Restaurant.find(params[:id])
-		if @restaurant.update(restaurant_params)
-			flash[:success] = "Restaurant was successfully updated"
-			redirect_to @restaurant
+		if current_user && current_user.id == @restaurant.user.id
+				if @restaurant.update(restaurant_params)
+					flash[:success] = "Restaurant was successfully updated"
+					redirect_to @restaurant
+				else
+					render 'edit'
+				end
 		else
-			render 'edit'
+			flash[:error] = "You must be signed in as owner"
+			redirect_to @restaurant
 		end
 	end
 
 	def destroy
 		@restaurant = Restaurant.find(params[:id])
-		@restaurant.destroy
-		redirect_to '#index'
+		if current_user && current_user.id == @restaurant.user.id
+			@restaurant.destroy
+			redirect_to '#index'
+		else
+			flash[:error] = "You must be signed in as owner"
+			redirect_to '#index'
+		end
 	end
 
 	private
