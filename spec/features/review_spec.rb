@@ -15,9 +15,9 @@ feature "adding a review" do
     expect(page).to have_content("really good")
     expect(page).to have_content("Rating: 5")
     expect(page).to have_content("Average Rating: 5")
-
+    expect(page).to have_content("tansaku@gmail.com")
   end
 
-  
+
 
 end
