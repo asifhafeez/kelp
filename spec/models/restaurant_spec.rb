@@ -30,4 +30,11 @@ RSpec.describe Restaurant, type: :model do
     expect(restaurant.user).to eq user
   end
 
+  it "should delete reviews with restaurant" do
+    review = restaurant.reviews.create(rating: 1, comment: "Awful", user_id: user.id)
+
+    expect{restaurant.destroy}.to change{Review.count}.by(-1)
+
+  end
+
 end

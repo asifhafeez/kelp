@@ -3,7 +3,7 @@ class Restaurant < ActiveRecord::Base
   validates :description, presence: true, length: { maximum: 1500 }
   validates :user, presence: true
 
-  has_many :reviews
+  has_many :reviews, dependent: :destroy
   belongs_to :user
 
   def average_rating
