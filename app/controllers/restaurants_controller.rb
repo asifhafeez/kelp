@@ -43,8 +43,13 @@ class RestaurantsController < ApplicationController
 
 	def destroy
 		@restaurant = Restaurant.find(params[:id])
-		@restaurant.destroy
-		redirect_to '#index'
+		if current_user && current_user.id == @restaurant.user.id
+			@restaurant.destroy
+			redirect_to '#index'
+		else
+			flash[:error] = "You must be signed in as owner"
+			redirect_to '#index'
+		end
 	end
 
 	private
