@@ -47,4 +47,10 @@ feature 'Add restaurant' do
     expect(page).to have_content 'Description is too long (maximum is 1500 characters)'
     expect(page).to have_current_path('/restaurants')
   end
+
+  scenario "need to be signed in to add a restaurant" do
+    visit '/'
+    click_link "Sign Out"
+    expect(page).to_not have_content "Add restaurant"
+  end
 end
