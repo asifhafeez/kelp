@@ -12,4 +12,12 @@ module FeatureHelper
     click_link 'Add restaurant'
   end
 
+  def add_review
+    visit "/restaurants/1"
+    click_link("Add review")
+    fill_in :review_comment, with: 'really good'
+    select '5', from: 'review_rating'
+    click_button'Leave Review'
+  end
+
 end

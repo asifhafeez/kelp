@@ -8,9 +8,11 @@ RSpec.describe Restaurant, type: :model do
 		user_id: user.id)}
 
   it 'should calculate average rating' do
+    User.create email: 'bob@gmail.com', password: '12345678', password_confirmation: '12345678'
+    User.create email: 'bill@gmail.com', password: '12345678', password_confirmation: '12345678'
 		restaurant.reviews.create(rating: 5, comment: "Great Indian Restaurant", user_id: user.id)
-		restaurant.reviews.create(rating: 1, comment: "Awful", user_id: user.id)
-		restaurant.reviews.create(rating: 2, comment: "Passable", user_id: user.id)
+		restaurant.reviews.create(rating: 1, comment: "Awful", user_id: 2)
+		restaurant.reviews.create(rating: 2, comment: "Passable", user_id: 3)
 		expect(restaurant.average_rating).to eq(3)
   end
 
@@ -26,7 +28,7 @@ RSpec.describe Restaurant, type: :model do
 		expect(restaurant.description).to eq("Great Indian Restaurant")
 	end
 
-	it "should have a user", focus: :true do
+	it "should have a user" do
     expect(restaurant.user).to eq user
   end
 
