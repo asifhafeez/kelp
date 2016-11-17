@@ -6,12 +6,16 @@
     =@restaurant.average_rating
   %p
     =@restaurant.description
-  =link_to "<button>Edit details</button>".html_safe, edit_restaurant_path(@restaurant)
+
+  -if current_user && current_user.id == @restaurant.user.id
+    =link_to "<button>Edit details</button>".html_safe, edit_restaurant_path(@restaurant)
 
   %h3 Reviews
   %ul
     -@restaurant.reviews.each do |review|
       %li
+        %p
+          =review.get_user_email
         %p
           Rating:
           =review.rating

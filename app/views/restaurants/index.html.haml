@@ -6,4 +6,5 @@
 				%p= restaurant.name
 				%p= restaurant.description
 				=link_to "<button>More info</button>".html_safe, restaurant
-=link_to "Add restaurant", url_for(action: :new)
+-if current_user
+	=link_to "Add restaurant", url_for(action: :new)
