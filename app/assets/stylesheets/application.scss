@@ -12,6 +12,8 @@
  *
  *= require_tree .
  *= require_self
+ *= require animate
+
  */
  @import "bootstrap-sprockets";
  @import "bootstrap";
@@ -59,7 +61,7 @@ body {
 .alert {
   position: fixed;
   left: 37%;
+  top: 5%;
   width: 500px;
   text-align: center;
-  box-shadow: 5px 5px 10px #0c2f40;
-}
+  box-shadow: 1px 2px 10px #0c2f40;}

@@ -12,7 +12,7 @@
       %header
         %nav.navbar.navbar-default
           .container-fluid
-            .navbar-header.slideInDown
+            .navbar-header
               %a.navbar-brand{:href => root_path} Kelp
             %ul.nav.navbar-nav.navbar-right
               - if !current_user
@@ -26,6 +26,6 @@
                 %li
                   %a{:href => destroy_user_session_path} Sign Out
     -flash.each do |key, value|
-      .alert.alert-info
+      .alert.alert-info.animated.slideInDown
         =value
   =yield
