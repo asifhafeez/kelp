@@ -12,7 +12,7 @@
       %header
         %nav.navbar.navbar-default
           .container-fluid
-            .navbar-header
+            .navbar-header.slideInDown
               %a.navbar-brand{:href => root_path} Kelp
             %ul.nav.navbar-nav.navbar-right
               - if !current_user
@@ -25,8 +25,6 @@
                   %a{:href => edit_user_registration_path} Edit Profile
                 %li
                   %a{:href => destroy_user_session_path} Sign Out
-
-  
     -flash.each do |key, value|
       .alert.alert-info
         =value

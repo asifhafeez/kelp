@@ -55,3 +55,11 @@ body {
   font-size: 60px;
   text-shadow: 2px 2px #4400f2 ;
 }
+
+.alert {
+  position: fixed;
+  left: 37%;
+  width: 500px;
+  text-align: center;
+  box-shadow: 5px 5px 10px #0c2f40;
+}
