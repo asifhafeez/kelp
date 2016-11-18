@@ -1,10 +1,11 @@
-#main
-	%h2 Restaurant List
-	%ul
-		-@restaurants.each do |restaurant|
-			%li
-				%p= restaurant.name
-				%p= restaurant.description
-				=link_to "<button>More info</button>".html_safe, restaurant
+.jumbotron
+  %h2 Restaurant List
+.container
+  %ul
+    -@restaurants.each do |restaurant|
+      %li
+        %p= restaurant.name
+        %p= restaurant.description
+        =link_to "<button>More info</button>".html_safe, restaurant
 -if current_user
-	=link_to "Add restaurant", url_for(action: :new)
+  =link_to "Add restaurant", url_for(action: :new)
