@@ -26,6 +26,8 @@
                 %li
                   %a{:href => destroy_user_session_path} Sign Out
 
-  -flash.each do |key, value|
-    =value
+  
+    -flash.each do |key, value|
+      .alert.alert-info
+        =value
   =yield
