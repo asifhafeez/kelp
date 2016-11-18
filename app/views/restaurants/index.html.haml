@@ -1,12 +1,14 @@
 .jumbotron
   %h2 Restaurant List
-.container
+.container.home
   %ul
     -@restaurants.each do |restaurant|
       %li
-        = image_tag restaurant.image_url
-        %p= restaurant.name
-        %p= restaurant.description
+        .col-md-4
+          = image_tag restaurant.image_url
+        .col-md-8
+          %p= restaurant.name
+          %p= restaurant.description
         =link_to "<button>More info</button>".html_safe, restaurant
 -if current_user
   =link_to "Add restaurant", url_for(action: :new)

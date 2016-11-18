@@ -21,6 +21,7 @@
 
 body {
   margin: 0;
+  background: #eff7f6;
 }
 
 .header {
@@ -46,11 +47,20 @@ body {
   width: 960px;
 }
 
+body>.container {
+  background: #fcfdfd;
+}
+
+.home ul {
+  list-style: none;
+}
+
 .jumbotron {
   color: white;
   text-align: center;
   background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(http://www.21oceanfront.com/images/banner-Seafood-3.jpg);
   background-size: cover;
+  margin-bottom: 0;
 }
 
 .jumbotron h2 {
