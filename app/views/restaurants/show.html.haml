@@ -1,28 +1,31 @@
-#main
-  .jumbotron
-    %h2
-      =@restaurant.name
-  %h3
-    Average Rating:
-    =@restaurant.average_rating
-  %p
-    =@restaurant.description
 
-  -if current_user && (current_user.id == @restaurant.user.id)
-    =link_to "<button>Edit details</button>".html_safe, edit_restaurant_path(@restaurant)
+.jumbotron
+  %h2
+    =@restaurant.name
 
-  %h3 Reviews
-  %ul
-    -@restaurant.reviews.each do |review|
-      %li
-        %p
-          =review.get_user_email
-        %p
-          Rating:
-          =review.rating
-        %p
-          =review.comment
-        -if current_user && (current_user.id == review.user.id)
-          =link_to "<button>Delete</button>".html_safe, restaurant_review_path(id: review.id, restaurant_id: @restaurant.id), method: :delete, data: { confirm: 'Are you sure?'}
+  
+= image_tag @restaurant.image.url
+%h3
+  Average Rating:
+  =@restaurant.average_rating
+%p
+  =@restaurant.description
 
-  =link_to "<button>Add review</button>".html_safe, new_restaurant_review_path(@restaurant)
+-if current_user && (current_user.id == @restaurant.user.id)
+  =link_to "<button>Edit details</button>".html_safe, edit_restaurant_path(@restaurant)
+
+%h3 Reviews
+%ul
+  -@restaurant.reviews.each do |review|
+    %li
+      %p
+        =review.get_user_email
+      %p
+        Rating:
+        =review.rating
+      %p
+        =review.comment
+      -if current_user && (current_user.id == review.user.id)
+        =link_to "<button>Delete</button>".html_safe, restaurant_review_path(id: review.id, restaurant_id: @restaurant.id), method: :delete, data: { confirm: 'Are you sure?'}
+
+=link_to "<button>Add review</button>".html_safe, new_restaurant_review_path(@restaurant)

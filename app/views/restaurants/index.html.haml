@@ -4,6 +4,7 @@
   %ul
     -@restaurants.each do |restaurant|
       %li
+        = image_tag restaurant.image_url
         %p= restaurant.name
         %p= restaurant.description
         =link_to "<button>More info</button>".html_safe, restaurant

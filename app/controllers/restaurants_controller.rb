@@ -17,7 +17,7 @@ class RestaurantsController < ApplicationController
 			else
 				render 'new'
 			end
-		else 
+		else
 			flash[:error] = "You must be signed in"
 			redirect_to '#index'
 		end
@@ -60,6 +60,6 @@ class RestaurantsController < ApplicationController
 	private
 
 		def restaurant_params
-			params.require(:restaurant).permit(:name, :description)
+			params.require(:restaurant).permit(:name, :description, :image)
 		end
 end
