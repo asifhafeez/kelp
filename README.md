@@ -2,7 +2,9 @@
 Like Yelp with but a K
 
 ## Introduction
-This is a repository for the Makers Academy Week 6 MakersBnB Challenge.
+This is a repository for the Makers Academy Week 8 Yelp Challenge. Currently Available on: https://kelp-restaurants.herokuapp.com/
+
+[Read more here](https://asifhafeez.github.io/)
 
 ## Instructions
 
