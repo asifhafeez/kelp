@@ -8,7 +8,8 @@ This is a repository for the Makers Academy Week 6 MakersBnB Challenge.
 
 * Clone this Repo to your local machine
 * Change into the kelp directory
-* Use the following command to launch the server. `rails server'
+* run `bundle install`
+* Use the following command to launch the server: `rails server`
 * The server is hosted on localhost:3000
 
 ## Analysis
